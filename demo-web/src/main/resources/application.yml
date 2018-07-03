@@ -1,0 +1,22 @@
+# Spring boot applicationspring:spring:
+spring:
+  application:
+    name: demo-web
+  server:
+    port: 8080
+  management:
+    server:
+      port: 8081
+
+#dubbo config
+dubbo:
+  application:
+    id: demo-web
+    name: demo-web
+    qos-port: 22223
+  protocol:
+    id: dubbo
+    name: dubbo
+  registry:
+    protocol: zookeeper
+    address: 127.0.0.1:2181

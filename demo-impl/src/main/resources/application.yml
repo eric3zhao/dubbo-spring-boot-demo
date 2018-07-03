@@ -1,0 +1,46 @@
+#spring boot application
+spring:
+  application:
+    name: demo-provider
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/qinyuan?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      filter: stat
+      max-active: 30
+      initial-size: 10
+      max-wait: 60000
+      min-idle: 10
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+      validation-query: SELECT 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      max-open-prepared-statements: 20
+      remove-abandoned: true
+      remove-abandoned-timeout: 1800
+      log-abandoned: true
+
+#dubbo config
+dubbo:
+  application:
+    id: demo-provider
+    name: demo-provider
+    qos-port: 22222
+    qos-enable: true
+  protocol:
+    id: dubbo
+    name: dubbo
+    port: 12345
+    status: server
+  registry:
+    id: my-registry
+    address: 127.0.0.1:2181
+    protocol: zookeeper
+
+#mybatis config
+mybatis:
+  mapper-locations: classpath:mybatis/*.xml
